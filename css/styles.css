@@ -1,0 +1,160 @@
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    background-color: #F3F5FC;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Globales */
+.contenedor {
+    max-width: 120rem;
+    height: 96rem;
+    margin: 0 auto;
+}
+.flex {
+    display: flex;
+}
+.grid {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+}
+.contenedor--index {
+    height: 960px;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.contenedor--palabras {
+    align-items: center;
+    justify-content: space-evenly;
+}
+.logo {
+    width: 18%;
+}
+
+/* Botones */
+.botones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 35rem;
+}
+.botones--juego {
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    grid-row: 4 / 5;
+}
+.boton1 {
+    background: #0A3871;
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    color: #D8DFE8;
+    font-size: 2rem;
+    border: 1px solid #0A3871;
+    text-align: center;
+    text-decoration: none;
+}
+.boton1--1 {
+    padding: 3.5rem;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+.boton2 {
+    background: #FFFFFF;
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    color: #000000;
+    font-size: 2rem;
+    border: 1px solid #0A3871;
+    text-align: center;
+    text-decoration: none;
+}
+.boton2--2 {
+    margin-top: 2rem;
+    width: 80%;
+}
+.boton__width--palabras {
+    width: 100%;
+}
+.boton__width--juego {
+    width: 40rem;
+}
+.boton1, .boton2:hover{
+    cursor: pointer;
+}
+
+
+/* Formulario */
+.formulario {
+    flex-direction: column;
+    justify-content: center;
+}
+.ingresar-palabra {
+    color: #0A3871;
+    background-color: #F3F5FC;
+    border: 1px solid #0A3871;
+    width: 100%;
+    height: 5rem;
+    margin-bottom: 6rem;
+    font-size: 2.5rem;
+}
+
+/* Listado */
+.listado {
+    height: 90rem;
+    width: 40rem;
+    background: #FFFFFF;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+    border-radius: 32px;
+    justify-content: center;
+}
+.titulo {
+    font-weight: 700;
+    font-size: 2.7rem;
+    color: #0A3871;
+    text-decoration: underline;
+}
+.lista {
+   padding: 0;
+   font-size: 2rem;
+   line-height: 150%;
+}
+.palabra {
+    padding: 1rem;
+    list-style: none;
+    text-align: center;
+}
+
+/* Juego */
+.dibujo,
+.letras {
+    text-align: center;
+}
+.letras {
+    grid-row: 2 / 4;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.guion {
+    width: 7rem;
+    height: .6rem;
+}
+.letra {
+    font-size: 2.4rem;
+    color: grey;
+}
+.letras-incorrectas {
+    width: 30%;
+    margin: 0 auto;
+    justify-content: space-evenly;
+}

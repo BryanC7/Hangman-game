@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego del Ahorcado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="preload" href="css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <section class="contenedor grid">
+        <div class="dibujo">
+            <canvas id="dibujo" width="600" height="400"></canvas>
+        </div>
+        <div class="letras flex">
+            <div>
+                <svg class="guion flex" xmlns="http://www.w3.org/2000/svg" version="1.1"><line x1="0" y1="0" x2="70" y2="0" style="stroke: #0A3871;stroke-width:6" /></svg>
+            </div>
+            <div class="letras-incorrectas flex">
+                <p class="letra">a</p>
+                <p class="letra">b</p>
+                <p class="letra">c</p>
+                <p class="letra">d</p>
+            </div>
+        </div>
+        <div class="botones botones--juego">
+            <button class="boton1 boton__width--juego">Nuevo juego</button>
+            <button class="boton2 boton__width--juego">Rendirse</button>
+        </div>
+
+    </section>
+</body>
+<script src="juego.js"></script>
+</html>
