@@ -21,6 +21,8 @@ body {
 }
 .grid {
     display: grid;
+}
+.grid-rows {
     grid-template-rows: repeat(4, 1fr);
 }
 .contenedor--index {
@@ -122,16 +124,28 @@ body {
     font-size: 2.7rem;
     color: #0A3871;
     text-decoration: underline;
+    text-align: center;
 }
 .lista {
    padding: 0;
    font-size: 2rem;
    line-height: 150%;
+   grid-template-columns: repeat(2, 1fr);
 }
 .palabra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 1rem;
     list-style: none;
     text-align: center;
+}
+.resetear {
+    margin: 0;
+}
+.btnCerrar{
+    color: red;
+    cursor: pointer;
 }
 
 /* Juego */

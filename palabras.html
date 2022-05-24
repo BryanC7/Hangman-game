@@ -15,20 +15,20 @@
 <body>
     <div class="contenedor contenedor--palabras flex">
         <section class="formulario flex">
-            <input class="ingresar-palabra" type="text" placeholder="Ingresa la palabra">
+            <input id="input" class="ingresar-palabra" type="text" placeholder="Ingresa la palabra">
             <div>
-                <a class="boton1 boton__width--palabras">Guardar palabra</a>
+                <a id="guardar-palabra" class="boton1 boton__width--palabras">Guardar palabra</a>
                 <a href="index.html" class="boton2 boton__width--palabras">Volver al inicio</a>
             </div>
         </section>
 
-        <section class="listado flex">
-            <ul class="lista"><span class="titulo">Listado de palabras</span> 
-                <li class="palabra">backend</li>
-                <li class="palabra">svg</li>
-                <li class="palabra">alura</li>
+        <section class="listado">
+            <p class="titulo">Listado de palabras</p> 
+            <ul class="lista">
+            
             </ul>
         </section>
     </div>
 </body>
+<script src="palabras.js"></script>
 </html>
