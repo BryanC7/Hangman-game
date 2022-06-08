@@ -1,5 +1,5 @@
-let pantalla1 = document.querySelector("#dibujo")
-let pincel = pantalla1.getContext("2d")
+let pantalla = document.querySelector("#dibujo")
+let pincel = pantalla.getContext("2d")
 
 // Color y grosor
 function colorGrosor() {
@@ -92,25 +92,157 @@ function dibujarSujetador() {
     pincel.stroke()    
 }
 
-dibujarBase()
-dibujarSoporte1()
-dibujarSoporte2()
-dibujarSujetador()
-dibujarCabeza()
-dibujarTorso()
-dibujarBrazoIzq()
-dibujarBrazoDer()
-dibujarPiernaIzq()
-dibujarPiernaDer()
 
 const data = JSON.parse(localStorage.getItem('palabras'))
 let indice = Math.floor(Math.random() * data.length)
-window.addEventListener('keyup', buscarLetra)
+let lineas = document.querySelector('#lineas')
+let incorrectas = document.querySelector('.letras-incorrectas')
+let btnNuevoJuego = document.querySelector('#btnNuevoJuego')
+let btnRendir = document.querySelector('#btnRendir')
+let palabra2 = []
+let letrasIncorrectas = []
+let contadorErrores = 0
+
+cargarEventos()
+
+function cargarEventos () {
+    window.addEventListener('keyup', buscarLetra)
+    window.addEventListener('DOMContentLoaded', cargarPalabra)
+    btnNuevoJuego.addEventListener('click', () => location.reload())
+    btnRendir.addEventListener('click', mensajePerdiste)
+}
 
 let palabra = data[indice].palabra
 palabra = palabra.split('')
 console.log(palabra)
+palabra2 = palabra
+
+function cargarPalabra () {
+    palabra.forEach(elemento => {
+        const div = document.createElement('div')
+        div.classList.add('identificador')
+        div.innerHTML = `
+                <p id="${palabra.indexOf(elemento)}" class="letra-correcta invisible">${elemento}</p>
+                <svg class="guion flex" xmlns="http://www.w3.org/2000/svg" version="1.1"><line x1="0"   y1="0" x2="70" y2="0" style="stroke: #0A3871;stroke-width:6" /></svg>
+            `
+        lineas.appendChild(div)
+    })
+}
 
 function buscarLetra (e) {
-    console.log(e.key)
+    let juegoTerminado = false
+    if(palabra2.length === 0 || contadorErrores === 10) {
+        console.log('Juego terminado')
+        juegoTerminado = true
+    } else {
+        console.log(palabra.includes(e.key))
+        if(!palabra.includes(e.key) && !letrasIncorrectas.includes(e.key)) {
+            contadorErrores++
+            letrasIncorrectas.push(e.key)
+            mostrarIncorrectas(letrasIncorrectas)
+            errores()
+        }
+    }
+
+    const letra = document.querySelectorAll('.identificador')
+    letra.forEach(elemento => {
+        if(e.key === elemento.children[0].textContent && !juegoTerminado){
+            elemento.children[0].classList.remove('invisible')
+            palabra2 = palabra2.filter(elemento => e.key !== elemento)
+        } 
+    })
+
+    console.log(contadorErrores, 'contadorErrores') 
+    console.log(letrasIncorrectas, 'letrasIncorrectas')
+    console.log(palabra2)
 }
+
+function mostrarIncorrectas(letrasIncorrectas) {
+    limpiarIncorrectas()
+    letrasIncorrectas.forEach(elemento => {
+        const letra = document.createElement('p')
+        letra.classList.add('letra-incorrecta')
+        letra.textContent = elemento
+        incorrectas.appendChild(letra)
+    })
+}
+
+function limpiarIncorrectas() {
+    while(incorrectas.firstChild) {
+        incorrectas.removeChild(incorrectas.firstChild)
+    }
+}
+
+function errores() {
+    switch(contadorErrores) {
+        case 1: 
+            console.log('error 1')
+            dibujarBase()
+            break;
+        case 2: 
+            console.log('error 2')
+            dibujarSoporte1()
+            break;
+        case 3: 
+            console.log('error 3')
+            dibujarSoporte2()
+            break;
+        case 4: 
+            console.log('error 4')
+            dibujarSujetador()
+            break;
+        case 5: 
+            console.log('error 5')
+            dibujarCabeza()
+            break;
+        case 6: 
+            console.log('error 6')
+            dibujarTorso()
+            break;
+        case 7: 
+            console.log('error 7')
+            dibujarBrazoIzq()
+            break;
+        case 8: 
+            console.log('error 8')
+            dibujarBrazoDer()
+            break;
+        case 9: 
+            console.log('error 9')
+            dibujarPiernaIzq()
+            break;
+        case 10: 
+            console.log('error 10')
+            dibujarPiernaDer()
+            mensajePerdiste()
+            break;
+        default:
+            e.preventDefault()
+            break;
+    }
+}
+
+function mensajePerdiste() {
+    contadorErrores = 10
+    dibujarBase()
+    dibujarSoporte1()
+    dibujarSoporte2()
+    dibujarSujetador()
+    dibujarCabeza()
+    dibujarTorso()
+    dibujarBrazoIzq()
+    dibujarBrazoDer()
+    dibujarPiernaIzq()
+    dibujarPiernaDer()
+    const letra = document.querySelectorAll('.identificador')
+    letra.forEach(elemento => elemento.children[0].classList.remove('invisible'))
+}
+
+
+
+
+
+
+
+
+

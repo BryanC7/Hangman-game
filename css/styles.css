@@ -165,16 +165,26 @@ body {
     align-items: center;
     justify-content: space-evenly;
 }
+.lineas {
+    column-gap: 2rem;
+}
+.invisible {
+    visibility: hidden
+}
 .guion {
     width: 7rem;
     height: .6rem;
 }
-.letra {
+.letra-correcta {
+    font-size: 3rem;
+    color: #0A3871;
+}
+.letra-incorrecta {
     font-size: 2.4rem;
     color: grey;
 }
 .letras-incorrectas {
-    width: 30%;
+    width: 50%;
     margin: 0 auto;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
