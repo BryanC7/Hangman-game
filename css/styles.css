@@ -88,7 +88,7 @@ body {
     width: 100%;
 }
 .boton__width--juego {
-    width: 40rem;
+    width: 30%;
 }
 .boton1, .boton2:hover{
     cursor: pointer;
@@ -187,4 +187,8 @@ body {
     width: 50%;
     margin: 0 auto;
     justify-content: space-around;
+}
+.mensaje-perdiste {
+    font-size: 2rem;
+    color: red;
 }

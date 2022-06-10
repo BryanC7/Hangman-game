@@ -99,6 +99,7 @@ let lineas = document.querySelector('#lineas')
 let incorrectas = document.querySelector('.letras-incorrectas')
 let btnNuevoJuego = document.querySelector('#btnNuevoJuego')
 let btnRendir = document.querySelector('#btnRendir')
+let letras = document.querySelector('.letras')
 let palabra2 = []
 let letrasIncorrectas = []
 let contadorErrores = 0
@@ -234,6 +235,11 @@ function mensajePerdiste() {
     dibujarBrazoDer()
     dibujarPiernaIzq()
     dibujarPiernaDer()
+    let mensaje = document.createElement('p')
+    mensaje.classList.add('mensaje-perdiste')
+    mensaje.textContent = '¡Perdiste, inténtalo nuevamente!'
+    letras.insertBefore(mensaje, lineas)
+    btnRendir.style.pointerEvents = "none"
     const letra = document.querySelectorAll('.identificador')
     letra.forEach(elemento => elemento.children[0].classList.remove('invisible'))
 }
